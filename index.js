@@ -12,7 +12,7 @@ import { handleValidationErrors, checkAuth } from './utils/index.js';
 import { UserController, PostController } from './controllers/index.js';
 
 mongoose
-  .connect('mongodb+srv://stas:stas@cluster0.fyqua.mongodb.net/?retryWrites=true&w=majority')
+  .connect(process.env.MONGO_URL)
   .then(() => console.log('DB ok'))
   .catch((err) => console.log('DB error', err));
 
