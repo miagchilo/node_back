@@ -5,6 +5,8 @@ import cors from 'cors';
 
 import mongoose from 'mongoose';
 
+
+
 import { registerValidation, loginValidation, postCreateValidation } from './validations.js';
 
 import { handleValidationErrors, checkAuth } from './utils/index.js';
@@ -12,7 +14,7 @@ import { handleValidationErrors, checkAuth } from './utils/index.js';
 import { UserController, PostController } from './controllers/index.js';
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(process.env.MONGO_URL || "mongodb+srv://stas:stas@cluster0.fyqua.mongodb.net/?retryWrites=true&w=majority")
   .then(() => console.log('DB ok'))
   .catch((err) => console.log('DB error', err));
 
